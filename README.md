@@ -21,8 +21,9 @@ Change the permissions on couchdb resources.
 sudo chown -R couchdb:couchdb /usr/bin/couchdb /etc/couchdb /usr/share/couchdb
 sudo chmod -R 0770 /usr/bin/couchdb /etc/couchdb /usr/share/couchdb
 ```
-
-Add a new logging\_format directive and access\_log directive to `nginx.conf`, which is located in `/etc/nginx`. These directives need to go in the `http` block.
+Add a new logging\_format directive and access\_log directive to `nginx.conf`,
+which is located in `/etc/nginx`. These directives need to go in the `http`
+block.
 ```
 log_format json escape=json '{ "time_local": "$time_local", '
  '"time_iso8601": "$time_iso8601", '
@@ -35,19 +36,15 @@ log_format json escape=json '{ "time_local": "$time_local", '
  '"status": "$status", '
  '"http_referrer": "$http_referrer", '
  '"http_user_agent": "$http_user_agent", '
- '"geoip_city": "$geoip_city", '
- '"geoip_city_continent_code": "$geoip_city_continent_code", '
- '"geoip_city_country_name": "$geoip_city_country_name", '
- '"geoip_latitude": "$geoip_latitude", '
- '"geoip_longitude": "$geoip_longitude", '
  '"uri": "$uri", '
  '"ancient_browser": "$ancient_browser", '
  '"modern_browser": "$modern_browser" }';
 
 access_log /var/log/nginx/access.json json;
 ```
-
-Add a nginx proxy configuration to route requests to couchdb. In the server block for your site, make a new `location` block. If you are just testing this out, you can add it to the `default` site.
+Add a nginx proxy configuration to route requests to couchdb. In the server
+block for your site, make a new `location` block. If you are just testing this
+out, you can add it to the `default` site.
 ```
 location /nginlog {
     if ( $remote_addr = "127.0.0.1" ) { access_log off; }
@@ -62,10 +59,21 @@ location /nginlog {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 }
 ```
-Fill in DOMAIN_NAME, SERVER\_IP, and CLIENT\_IP as needed. This will prevent nginx from logging requests to couchdb. Check that your changes nginx configuration are correct by running `sudo nginx -t`.
+Fill in DOMAIN_NAME, SERVER\_IP, and CLIENT\_IP as needed. This will prevent
+nginx from logging requests to couchdb. Check that your changes nginx
+configuration are correct by running `sudo nginx -t`.
 
-Add a bind directive to `local.ini` in `/etc/couchdb`. Find the `[httpd]` block and add the line `bind_address = 0.0.0.0`. Note that this allows anyone to access the database and you may want to refine it. We will restrict external users to read-only access.
+Add a bind directive to `local.ini` in `/etc/couchdb`. Find the `[httpd]` block
+and add the line `bind_address = 0.0.0.0`. Note that this allows anyone to
+access the database and you may want to refine it. We will restrict external
+users to read-only access.
 
+Add `access.json` file to `/var/log/nginx`. Change its owner to `www-data` and
+group to `adm`.
+```
+sudo chown www-data /var/log/nginx/access.json
+sudo chgrp adm /var/log/nginx/access.json
+```
 Start and enable nginx, then reload the changes.
 ```
 systemctl start nginx
@@ -76,6 +84,26 @@ Restart couchdb.
 ```
 systemctl restart couchdb
 ```
+Now visit `SERVER_IP/nginlog/_utils/index.html`. Assuming couchdb 1.61, you will
+see the Futon web interface. Secure the database by setting up an admin. In the
+bottom right corner of the interface you will see a "Welcome to the Admin
+party!" note and a link to "Fix this". Set up an admin username and password.
 
-Now visit `SERVER_IP/nginlog/_utils/index.html`. Assuming couchdb 1.61, you will see the Futon web interface. Secure the database by setting up an admin. In the bottom right corner of the interface you will see a "Welcome to the Admin party!" note and a link to "Fix this". Set up an admin username and password. 
+Create a database in couchdb for requests using your new admin account.
+```
+curl -X PUT http://USERNAME:PASSWORD@127.0.0.1/nginlog/requests
+```
+Clone the nginlog repository. Substitute DOMAIN\_OR\_IP\_ADDRESS in `tail.py`
+with the your server's domain or IP address. Make a new directory `/opt/nginlog`
+and copy `tail.py` into it. Set USERNAME as yourself and the group to `adm`.
+```
+sudo mkdir /opt/nginlog
+sudo cp nginlog/server/tail.py /opt/nginlog/
+sudo chown USERNAME /opt/nginlog/tail.py
+sudo chgrp adm /opt/nginlog/tail.py
+```
+Start `tail.py` and it should start reading `access.json` into the `requests` database.
 
+Much of the couchdb configuration described here came from
+[https://linoxide.com/linux-how-to/install-couchdb-futon-ubuntu-1604/](https://linoxide.com/linux-how-to/install-couchdb-futon-ubuntu-1604/).
+This post has some nice screenshots and more explanation.
