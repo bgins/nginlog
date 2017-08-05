@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>nginlog</title>
+    <meta charset="utf-8">
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highcharts-ng/1.1.0/highcharts-ng.css" />
+    <link rel="stylesheet" type="text/css" href="app.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-aria.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-messages.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.14/highcharts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.14/js/themes/dark-unica.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts-ng/1.1.0/highcharts-ng.min.js"></script>
+    <script src="components/chart/chart.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="nginlog">
+    <div layout="row" ng-controller="AppCtrl" layout-fill="" class="layout-fill layout-row">
+      <div layout="column" class="sidenav-container layout-column" style="overflow: visible;">
+        <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="2">
+          <md-toolbar md-whiteframe="3" class="_md md-whiteframe-3dp md-default-theme _md-toolbar-transitions">
+            <div class="md-toolbar-tools">
+              <div hide="" show-gt-md="" class="hide show-gt-md">
+                <span class="md-title">nginlog</span>
+              </div>
+            </div>
+          </md-toolbar>
+        </md-sidenav>
+      </div>
+      <div layout="column" flex="" class="layout-column flex">
+        <md-toolbar md-whiteframe="3" class="content-title main-toolbar-override ng-isolate-scope _md md-whiteframe-3dp md-default-theme _md-toolbar-transitions">
+          <div class="md-toolbar-tools layout-row" layout="row">
+            <div hide-gt-md="" class="hide-gt-md">
+              <md-button class="md-icon-button md-primary" aria-label="Settings">
+                <md-icon md-svg-icon="img/icons/menu.svg" ng-click="toggleSidenav()"></md-icon>
+              </md-button>
+            </div>
+            <h1>Home</h1>
+          </div>
+        </md-toolbar>
+        <md-content ng-controller="ChartController">
+          <div class="row">
+            <highchart id="chart1" config="chartConfig" class="span10"></highchart>
+          </div>
+        </md-content>
+      </div>
+    </div>
+  </body>
+</html>
