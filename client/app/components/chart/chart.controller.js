@@ -1,10 +1,10 @@
 (function() {
   'use strict';
 
-  angular.module('components.chart', [])
-    .controller('ChartController', ChartController);
+  angular.module("nginlog.Controllers")
+    .controller('chartController', chartController);
 
-  function ChartController($scope) {
+  function chartController($scope) {
     $scope.chartConfig = {
       chart: {
         type: 'pie',
