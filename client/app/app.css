@@ -1,5 +1,6 @@
 @media (max-width: 1279px) {
- .main-toolbar-override, .md-toolbar-tools {
+ /* .main-toolbar-override, .md-toolbar-tools { */
+ .main-toolbar, .md-toolbar-tools {
      margin-left: 0px;
      padding: 0;
  }
