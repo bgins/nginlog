@@ -7,21 +7,33 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highcharts-ng/1.1.0/highcharts-ng.css" />
     <link rel="stylesheet" type="text/css" href="app.css" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-aria.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-messages.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+
+    <!-- highcharts scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.14/highcharts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.14/js/themes/dark-unica.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/map.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts-ng/1.1.0/highcharts-ng.min.js"></script>
+
+    <!-- nginlog scripts -->
     <script src="app.js"></script>
+    <script src="routes/routes.js"></script>
+    <script src="components/home/home.controller.js"></script>
+    <script src="components/map/map.controller.js"></script>
     <script src="components/chart/chart.controller.js"></script>
     <script src="components/navigation/navigation.controller.js"></script>
+    <script src="services/visualization.service.js"></script>
   </head>
-  <body ng-app="nginlog">
-    <div layout="row" ng-controller="navigationController" ng-cloak layout-fill>
+  <body ng-app="nginlog" ng-controller="navigationController">
+    <div layout="row" ng-cloak layout-fill>
       <div layout="column" class="sidenav-container" ng-cloak>
         <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="2">
           <md-toolbar md-whiteframe="3" style="position: relative;">
@@ -47,9 +59,8 @@
             <h1>Home</h1>
           </div>
         </md-toolbar>
-        <md-content ng-controller="chartController">
-            <highchart id="chart1" config="chartConfig" class="span10"></highchart>
-        </md-content>
+        <div layout="column" flex layout-padding-gt-sm ng-view>
+        </div>
       </div>
     </div>
   </body>

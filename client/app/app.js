@@ -10,9 +10,8 @@
 
   window.app = app;
 
-  app.config(function($urlRouterProvider, $mdThemingProvider) {
-      $urlRouterProvider.otherwise('/');
-      $mdThemingProvider.theme('default')
+  app.config(function($mdThemingProvider) {
+          $mdThemingProvider.theme('default')
         .primaryPalette('indigo')
         .dark();
   });
