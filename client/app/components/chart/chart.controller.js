@@ -2,16 +2,22 @@
   'use strict';
 
   angular.module("nginlog.Controllers")
-    .controller('chartController', chartController);
+    .controller('chartController', ["$scope", "visualizationService", chartController]);
 
-  function chartController($scope) {
+  function chartController($scope, visualizationService) {
+    // get the raw data and process it
+    // var rawData = {};
+
+    // test call to service
+    var data = visualizationService.fetch('','');
+
     $scope.chartConfig = {
       chart: {
         type: 'pie',
         backgroundColor: 'transparent'
       },
       series: [{
-        data: [10, 15, 12, 8, 7],
+        data: data,
         id: 'series1'
       }],
       title: {

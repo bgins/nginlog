@@ -1,8 +1,9 @@
 (function() {
   'use strict';
 
-  angular.module("Common", ["ui.router", "ngMaterial", "highcharts-ng"]);
-  angular.module("nginlog.Controllers", ["Common"]);
+  angular.module("Common", ["ngRoute", "ngMaterial", "highcharts-ng"]);
+  angular.module("nginlog.Services", []);
+  angular.module("nginlog.Controllers", ["Common", "nginlog.Services"]);
 
   var app = angular.module("nginlog", [
     "nginlog.Controllers"
