@@ -34,8 +34,8 @@
   </head>
   <body ng-app="nginlog" ng-controller="navigationController">
     <div layout="row" ng-cloak layout-fill>
-      <div layout="column" class="sidenav-container" ng-cloak>
-        <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="2">
+      <div layout="vertical" class="sidenav-container" ng-cloak>
+        <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="2" style="overflow: hidden" flex>
           <md-toolbar md-whiteframe="3" style="position: relative;">
             <div class="md-toolbar-tools">
               <div hide show-gt-md>
@@ -46,6 +46,15 @@
               </div>
             </div>
           </md-toolbar>
+          <div layout="column" style="overflow: auto" layout-fill flex>
+            <md-content layout="column">
+              <md-list>
+                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/')"><div class="list-item-text">Home</div></md-list-item>
+                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/chart')"><div class="list-item-text">Chart</div></md-list-item>
+                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/map')"><div class="list-item-text">Map</div></md-list-item>
+              </md-list>
+            </md-content>
+          </div>
         </md-sidenav>
       </div>
       <div layout="column" flex>
