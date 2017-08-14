@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highcharts-ng/1.1.0/highcharts-ng.css" />
     <link rel="stylesheet" type="text/css" href="app.css" />
 
+    <!-- angular -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-aria.min.js"></script>
@@ -15,20 +16,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
 
-    <!-- highcharts scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.14/highcharts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.14/js/themes/dark-unica.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/map.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
-    <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts-ng/1.1.0/highcharts-ng.min.js"></script>
+    <!-- angular-charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
 
     <!-- nginlog scripts -->
     <script src="app.js"></script>
     <script src="routes/routes.js"></script>
+    <script src="directives/pieChart/pieChart.directive.js"></script>
     <script src="components/home/home.controller.js"></script>
-    <script src="components/map/map.controller.js"></script>
-    <script src="components/chart/chart.controller.js"></script>
+    <script src="components/location/location.controller.js"></script>
     <script src="components/navigation/navigation.controller.js"></script>
     <script src="services/visualization.service.js"></script>
   </head>
@@ -50,8 +47,9 @@
             <md-content layout="column">
               <md-list>
                 <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/')"><div class="list-item-text">Home</div></md-list-item>
-                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/chart')"><div class="list-item-text">Chart</div></md-list-item>
-                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/map')"><div class="list-item-text">Map</div></md-list-item>
+                <!-- <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/chart')"><div class="list-item-text">Chart</div></md-list-item> -->
+                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/location')"><div class="list-item-text">Location</div></md-list-item>
+                <!-- <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/map')"><div class="list-item-text">Map</div></md-list-item> -->
               </md-list>
             </md-content>
           </div>
