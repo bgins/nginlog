@@ -48,6 +48,14 @@
 
         $scope.labels = labels;
         $scope.data = data;
+        $scope.options = {legend:
+                          { display: true,
+                            position: 'bottom',
+                            labels: {
+                              fontColor: 'white'
+                            }
+                          }
+                         };
       });
   };
 })();
