@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module("Common", ["ngRoute", "ngMaterial", "chart.js"]);
+  angular.module("Common", ["ngRoute", "ngMaterial", "chart.js", "md.data.table"]);
   angular.module("nginlog.Services", []);
   angular.module("nginlog.Controllers", ["Common", "nginlog.Services"]);
   angular.module("nginlog.Directives", ["Common", "nginlog.Services"]);
