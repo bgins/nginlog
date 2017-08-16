@@ -15,8 +15,30 @@
   window.app = app;
 
   app.config(function($mdThemingProvider) {
-          $mdThemingProvider.theme('default')
-        .primaryPalette('indigo')
-        .dark();
+    $mdThemingProvider.definePalette('nginlog-blue', {
+      '50': 'bcc3df',
+      '100': 'a2a9c5',
+      '200': '8990ac',
+      '300': '6f7692',
+      '400': '565d79',
+      '500': '49506C', //
+      '600': '3c435f',
+      '700': '232a46',
+      '800': '09102c',
+      '900': '000013',
+      'A100': 'ada2c6',
+      'A200': '9489ad',
+      'A400': '54496d',
+      'A700': '2e2347',
+      'contrastDefaultColor': 'light',
+      'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100']
+      // 'contrastLightColors': undefined
+    });
+
+    $mdThemingProvider.theme('default')
+      .primaryPalette('nginlog-blue', {
+        default: '500'
+      });
+        // .dark();
   });
 })();

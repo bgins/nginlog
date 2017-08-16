@@ -52,7 +52,7 @@
                           { display: true,
                             position: 'bottom',
                             labels: {
-                              fontColor: 'white'
+                              // fontColor: 'white'
                             }
                           }
                          };
