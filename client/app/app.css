@@ -17,3 +17,7 @@ body {
   font-size: 1.2em;
   font-family: 'Exo 2', sans-serif;
 }
+
+.pie-chart-size {
+  max-width: 400px;
+}

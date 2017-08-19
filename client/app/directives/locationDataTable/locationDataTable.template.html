@@ -1,0 +1,24 @@
+<md-table-container>
+  <table md-table md-progress="promise">
+    <thead md-head md-order="query.order">
+      <tr md-row>
+        <th md-column md-order-by="country"><span>Country</span></th>
+        <!-- <th md-column md-numeric md-order-by="value"><span>Requests</span></th> -->
+        <th md-column md-numeric md-order-by="total"><span>Total</span></th>
+        <th md-column md-numeric md-order-by="unique"><span>Unique</span></th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row ng-repeat="row in rows | filter: filter.search | orderBy: query.order |
+                            limitTo: query.limit: (query.page - 1) * query.limit">
+        <!-- <td md-cell>{{ row.key }}</td>
+             <td md-cell>{{ row.value }}</td> -->
+        <td md-cell>{{ row.country }}</td>
+        <td md-cell>{{ row.total }}</td>
+        <td md-cell>{{ row.unique }}</td>
+      </tr>
+    </tbody>
+  </table>
+</md-table-container>
+<md-table-pagination md-limit="query.limit" md-page="query.page"
+                     md-total="{{ rows.count }}"></md-table-pagination>

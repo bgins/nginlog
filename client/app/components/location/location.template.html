@@ -1,26 +1,11 @@
-<div layout="row" layout-xs="column" ng-controller="locationController">
+<div layout="row">
+  <h3 class="md-display">Total Requests by Location</h3>
+</div>
+<div layout="row" layout-wrap ng-controller="locationController">
   <md-content flex="66">
-    <nginlog-pie-chart></nginlog-pie-chart>
+    <nginlog-location-chart></nginlog-pie-chart>
   </md-content>
-  <md-content>
-    <md-table-container>
-      <table md-table md-progress="promise">
-        <thead md-head md-order="query.order">
-          <tr md-row>
-            <th md-column md-order-by="key"><span>Country</span></th>
-            <th md-column md-numeric md-order-by="value"><span>Requests</span></th>
-          </tr>
-        </thead>
-        <tbody md-body>
-          <tr md-row ng-repeat="row in rows | filter: filter.search | orderBy: query.order |
-                                limitTo: query.limit: (query.page - 1) * query.limit">
-            <td md-cell>{{ row.key }}</td>
-            <td md-cell>{{ row.value }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </md-table-container>
-    <md-table-pagination md-limit="query.limit" md-page="query.page"
-                         md-total="{{ rows.count }}"></md-table-pagination>
+  <md-content flex="34">
+    <nginlog-location-data-table></nginlog-location-data-table>
   </md-content>
 </div>
