@@ -1,3 +1,11 @@
 <md-content ng-controller="homeController">
   <div>Welcome nginlog user!</div>
 </md-content>
+<div layout="row">
+  <h3 class="md-display">Requests by Location</h3>
+</div>
+<div layout="row">
+  <md-content flex="66">
+    <nginlog-location-geo-chart></nginlog-geo-chart-chart>
+  </md-content>
+</div>
