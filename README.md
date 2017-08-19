@@ -53,6 +53,9 @@ location /nginlog {
     if ( $remote_addr = "CLIENT_IP" ) { access_log off; }
 
     rewrite /nginlog/(.*) /$1 break;
+    add_header 'Access-Control-Allow-Origin' '*';
+    add_header 'Access-Control-Allow-Methods' 'GET';
+    add_header 'Access-Control-Allow-Headers' 'X-Requested-With, Content-Type';
     proxy_pass http://localhost:5984;
     proxy_redirect off;
     proxy_set_header Host $host;
