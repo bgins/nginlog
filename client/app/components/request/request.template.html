@@ -1,8 +1,28 @@
-<div layout="row" layout-align="center" layout-wrap>
-  <nginlog-doughnut-chart class="doughnut-chart" field="'status'" title="'Status Code'"></nginlog-doughnut-chart>
+<div layout="row" layout-align="center" class="center-title" layout-wrap>
+  <div layout="column" class="chart-margin">
+    <h3>Host</h3>
   <nginlog-doughnut-chart class="doughnut-chart" field="'host'" title="'Host'"></nginlog-doughnut-chart>
+  </div>
+  <div layout="column" class="chart-margin">
+    <h3>Status Code</h3>
+    <nginlog-doughnut-chart class="doughnut-chart" field="'status'" title="'Status Code'"></nginlog-doughnut-chart>
+  </div>
+  <div layout="column" class="chart-margin">
+    <h3>User Agent</h3>
   <nginlog-doughnut-chart class="doughnut-chart" field="'http_user_agent'" title="'User Agent'"></nginlog-doughnut-chart>
+  </div>
 </div>
-<div layout="row" layout-align="center">
-  <h2 class="md-display">Requests</h2>
+<div layout="row" layout-align="center" class="host-tables center-title" layout-wrap>
+  <div layout="column" class="chart-margin">
+    <h3>Host: goats.party</h3>
+    <nginlog-count-data-table key="'uri_with_host_domain'" ></nginlog-count-data-table>
+  </div>
+  <div layout="column" class="chart-margin">
+    <h3>Host: 35.197.30.50</h3>
+    <nginlog-count-data-table key="'uri_with_host_ip'"></nginlog-count-data-table>
+  </div>
+  <div layout="column" class="chart-margin">
+    <h3>All Hosts</h3>
+    <nginlog-count-data-table key="'uri_with_all_hosts'"></nginlog-count-data-table>
+  </div>
 </div>

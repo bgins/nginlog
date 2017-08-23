@@ -29,3 +29,15 @@ body {
 .doughnut-chart {
   min-width: 25rem;
 }
+
+.host-tables {
+  padding-top: 2rem;
+}
+
+.chart-margin {
+  margin-right: 3rem;
+}
+
+.center-title {
+  text-align: center;
+}

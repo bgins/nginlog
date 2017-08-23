@@ -8,8 +8,7 @@
     return {
       restrict: "E",
       scope: {
-        field: '=',
-        title: '='
+        field: '='
       },
       controller: doughnutChartController,
       templateUrl: "directives/doughnutChart/doughnutChart.template.html"
@@ -17,7 +16,6 @@
   };
 
   function doughnutChartController($scope, visualizationService) {
-    console.log($scope.title);
     visualizationService.fetch('total_requests_by_' + $scope.field,'group=true')
       .then(function(result) {
         var results = {};
@@ -31,7 +29,6 @@
 
         // get keys sorted by value descending
         var keys = Object.keys(results).sort(function(a,b) { return results[b] - results[a]; });
-
 
         // push results into labels and data arrays for chart.js
         // the sum of results beyond the first six are put in an 'Other' category
@@ -50,17 +47,6 @@
 
         $scope.labels = labels;
         $scope.data = data;
-        $scope.options = {};
-        $scope.options =
-          // {legend:
-          //                 { display: true,
-          //                   position: 'bottom'
-          //                 },
-          { title:
-            { display: true,
-              text: $scope.title
-            }
-          };
       });
   };
 })();
