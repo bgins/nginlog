@@ -1,7 +1,13 @@
-<div layout="row">
-  <h3 class="md-display">Total Requests by Location</h3>
+<div layout="row" layout-align="center">
+  <md-content flex="66">
+  <!-- <md-content flex="100"> -->
+    <nginlog-location-geo-chart></nginlog-geo-chart-chart>
+  </md-content>
 </div>
-<div layout="row" layout-wrap ng-controller="locationController">
+<div layout="row" layout-align="center">
+  <h2 class="md-display">Total Requests by Location</h2>
+</div>
+<div layout="row" layout-align="center" layout-wrap ng-controller="locationController">
   <md-content flex="66">
     <nginlog-location-chart></nginlog-location-chart>
   </md-content>
