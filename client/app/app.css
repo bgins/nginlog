@@ -25,3 +25,7 @@ body {
 .geo-chart {
   overflow-y: hidden;
 }
+
+.doughnut-chart {
+  min-width: 25rem;
+}

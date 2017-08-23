@@ -26,6 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-data-table/0.10.10/md-data-table.min.js"></script>
 
     <!-- angular-google-charts -->
+    <!-- <script src='//maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyC1apOZaw0gTNljGQjM-JleJcpox-37LK4'></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-chart/0.1.0/ng-google-chart.min.js"></script>
 
     <!-- nginlog scripts -->
@@ -34,6 +35,8 @@
     <script src="directives/locationGeoChart/locationGeoChart.directive.js"></script>
     <script src="directives/locationChart/locationChart.directive.js"></script>
     <script src="directives/locationDataTable/locationDataTable.directive.js"></script>
+    <script src="directives/requestDataTable/requestDataTable.directive.js"></script>
+    <script src="directives/doughnutChart/doughnutChart.directive.js"></script>
     <script src="components/home/home.controller.js"></script>
     <script src="components/location/location.controller.js"></script>
     <script src="components/navigation/navigation.controller.js"></script>
@@ -57,9 +60,8 @@
             <md-content layout="column">
               <md-list>
                 <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/')"><div class="list-item-text">Home</div></md-list-item>
-                <!-- <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/chart')"><div class="list-item-text">Chart</div></md-list-item> -->
                 <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/location')"><div class="list-item-text">Location</div></md-list-item>
-                <!-- <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/map')"><div class="list-item-text">Map</div></md-list-item> -->
+                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/request')"><div class="list-item-text">Request</div></md-list-item>
               </md-list>
             </md-content>
           </div>
@@ -76,8 +78,9 @@
             <h1>Home</h1>
           </div>
         </md-toolbar>
-        <div layout="column" flex layout-padding-gt-sm ng-view>
-        </div>
+        <md-content>
+        <div layout="column" flex layout-padding-gt-sm ng-view></div>
+        </md-content>
       </div>
     </div>
   </body>

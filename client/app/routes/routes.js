@@ -25,6 +25,9 @@
           templateUrl: "components/location/location.template.html",
           controller: "locationController"
         })
+        .when("/request", {
+          templateUrl: "components/request/request.template.html"
+        })
         .when("/404", {
           templateUrl: "components/errors/404.template.html"
         })
