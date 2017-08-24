@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Exo+2:500|Lato" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="app.css" />
 
-
     <!-- angular -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
@@ -22,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <script src="http://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
 
-    <!-- angullar-material-data-table -->
+    <!-- angular-material-data-table -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-data-table/0.10.10/md-data-table.min.js"></script>
 
     <!-- angular-google-charts -->
@@ -48,19 +47,19 @@
           <md-toolbar md-whiteframe="3" style="position: relative;">
             <div class="md-toolbar-tools">
               <div hide show-gt-md>
-                <span class="md-title brand">nginlog</span>
+                <span class="md-headline brand">nginlog</span>
               </div>
               <div layout="column" hide-gt-md>
-                <span class="md-title brand">nginlog</span>
+                <span class="md-headline brand">nginlog</span>
               </div>
             </div>
           </md-toolbar>
           <div layout="column" style="overflow: auto" layout-fill flex>
             <md-content layout="column">
               <md-list>
-                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/')"><div class="list-item-text">Home</div></md-list-item>
-                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/location')"><div class="list-item-text">Location</div></md-list-item>
-                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/request')"><div class="list-item-text">Request</div></md-list-item>
+                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/')"><div class="md-title">Home</div></md-list-item>
+                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/location')"><div class="md-title">Location</div></md-list-item>
+                <md-list-item md-ink-ripple class="md-clickable" ng-click="navigate('/request')"><div class="md-title">Request</div></md-list-item>
               </md-list>
             </md-content>
           </div>

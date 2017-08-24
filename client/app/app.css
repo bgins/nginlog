@@ -9,21 +9,16 @@ body {
  }
 }
 
-.md-toolbar-tools, .visualization {
+.md-toolbar-tools, .chart-overflow-hidden {
   overflow-x: hidden;
 }
 
-.brand {
-  font-size: 1.2em;
-  font-family: 'Exo 2', sans-serif;
+.chart-overflow-hidden {
+  overflow-y: hidden;
 }
 
 .pie-chart-size {
   max-width: 400px;
-}
-
-.geo-chart {
-  overflow-y: hidden;
 }
 
 .doughnut-chart {
@@ -40,4 +35,9 @@ body {
 
 .center-title {
   text-align: center;
+}
+
+.brand {
+  font-size: 1.3em;
+  font-family: 'Exo 2', sans-serif;
 }
