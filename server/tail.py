@@ -6,7 +6,6 @@ import urllib2
 
 file = open('/var/log/nginx/access.json','r')
 
-# while 1:
 while True:
     fp = file.tell()
     line = file.readline()

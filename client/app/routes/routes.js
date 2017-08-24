@@ -13,14 +13,6 @@
           templateUrl: "components/home/home.template.html",
           controller: "homeController"
         })
-        // .when("/map", {
-        //   templateUrl: "components/map/map.template.html",
-        //   controller: "mapController"
-        // })
-        // .when("/chart", {
-        //   templateUrl: "components/chart/chart.template.html",
-        //   controller: "chartController"
-        // })
         .when("/location", {
           templateUrl: "components/location/location.template.html",
           controller: "locationController"
