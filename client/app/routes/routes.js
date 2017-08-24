@@ -18,7 +18,8 @@
           controller: "locationController"
         })
         .when("/request", {
-          templateUrl: "components/request/request.template.html"
+          templateUrl: "components/request/request.template.html",
+          controller: "requestController"
         })
         .when("/404", {
           templateUrl: "components/errors/404.template.html"

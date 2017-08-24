@@ -2,10 +2,10 @@
   'use strict';
 
   angular.module("nginlog.Controllers")
-    .controller('locationController', ["$scope", "visualizationService", locationController]);
+    .controller('locationController', ["$rootScope", locationController]);
 
-  function locationController($scope, visualizationService) {
-
+  function locationController($rootScope) {
+    $rootScope.header = "Location";
   };
 
 })();

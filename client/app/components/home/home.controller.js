@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module("nginlog.Controllers")
-    .controller('homeController', homeController);
+    .controller('homeController', ["$rootScope", homeController]);
 
-  function homeController($scope) {
-
+  function homeController($rootScope) {
+    $rootScope.header = 'Home';
   };
 })();
