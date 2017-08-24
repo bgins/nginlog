@@ -1,6 +1,5 @@
 <div layout="row" layout-align="center">
   <md-content flex="66">
-  <!-- <md-content flex="100"> -->
     <nginlog-location-geo-chart></nginlog-geo-chart-chart>
   </md-content>
 </div>
@@ -8,10 +7,10 @@
   <h2 class="md-display">Total Requests by Location</h2>
 </div>
 <div layout="row" layout-align="center" layout-wrap ng-controller="locationController">
-  <md-content flex="66">
+  <md-content flex="66" class="chart-overflow-hidden">
     <nginlog-location-chart></nginlog-location-chart>
   </md-content>
   <md-content flex="34">
-    <nginlog-location-data-table></nginlog-location-data-table>
+    <nginlog-count-data-table key="'country_name'"></nginlog-count-data-table>
   </md-content>
 </div>
