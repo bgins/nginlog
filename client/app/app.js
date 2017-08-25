@@ -1,10 +1,10 @@
 (function() {
   'use strict';
 
-  angular.module("Common", ["ngRoute", "ngMaterial", "googlechart", "chart.js", "md.data.table"]);
+  angular.module("Common", ["ngRoute", "ngMaterial"]);
+  angular.module("nginlog.Controllers", ["Common"]);
+  angular.module("nginlog.Directives", ["Common", "nginlog.Services", "googlechart", "chart.js", "md.data.table"]);
   angular.module("nginlog.Services", []);
-  angular.module("nginlog.Controllers", ["Common", "nginlog.Services"]);
-  angular.module("nginlog.Directives", ["Common", "nginlog.Services"]);
 
   var app = angular.module("nginlog", [
     "nginlog.Controllers",

@@ -6,6 +6,5 @@
 
   function requestController($rootScope) {
     $rootScope.header = "Request";
-    console.log("here");
   };
 })();

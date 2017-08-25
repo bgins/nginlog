@@ -1,7 +1,15 @@
 <div layout="row">
-  <md-content>
+  <md-content flex-gt-md="66">
     <h2 class="md-display">Welcome to nginlog!</h2>
     <p class="md-body2">Nginlog is an nginx traffic analysis tool. The nginlog server component must be installed separately on a web server. Once the server component is active, charts and maps showing web traffic on the server will be displayed in the <b>Request</b> and <b>Location</b> tabs.</p>
-    <p class="md-body2">The server is currently displaying information for <b>35.197.30.50</b> at the domain <b>goats.party</b>. Please refer to the GitHub repository for documentation on the client and server components.</p>
+    <p class="md-body2">The server is currently displaying information for <b>goats.party</b> at <b>35.197.30.50</b>. Please refer to the GitHub repository for documentation on the client and server components.</p>
+  </md-content>
+</div>
+<div layout="row">
+  <h2 class="md-display">Requests this Week</h2>
+</div>
+<div layout="row">
+  <md-content flex-md="100" flex-gt-md="66" class="chart-overflow-hidden">
+    <nginlog-timeline-chart></nginlog-timeline-chart>
   </md-content>
 </div>

@@ -30,7 +30,7 @@
         // get keys sorted by value descending
         var keys = Object.keys(results).sort(function(a,b) { return results[b] - results[a]; });
 
-        // push results into labels and data arrays for chart.js
+        // push results into labels and data for chart.js
         // the sum of results beyond the first six are put in an 'Other' category
         for (var j = 0; j < keys.length; j += 1) {
           if (j < 6) {
