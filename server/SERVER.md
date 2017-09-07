@@ -110,7 +110,7 @@ Much of the couchdb configuration described here came from
 [https://linoxide.com/linux-how-to/install-couchdb-futon-ubuntu-1604/](https://linoxide.com/linux-how-to/install-couchdb-futon-ubuntu-1604/).
 This post has some nice screenshots and more explanation.
 
-Once a few requests have been logged, add a design document named `requests`to
+Once a few requests have been logged, add a design document named `requests` to
 requests database. It should contain the following views.
 ```
 {

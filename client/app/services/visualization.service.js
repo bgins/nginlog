@@ -5,7 +5,7 @@
     .factory('visualizationService', visualizationService);
 
   function visualizationService($http, $q) {
-    var endpoint = 'http://104.196.239.23/couchdb/requests/_design/requests/_view/';
+    var endpoint = 'http://IP_OR_DOMAIN_NAME/nginlog/requests/_design/requests/_view/';
     var RequestData = {};
 
     RequestData.fetch = function(view, querystring) {
